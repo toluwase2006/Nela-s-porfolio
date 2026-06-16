@@ -800,6 +800,18 @@ p {
   z-index: 1;
 }
 
+.lightbox-content iframe {
+  width: 100%;
+  min-height: 60vh;
+  max-height: 80vh;
+  border: none;
+  display: block;
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+
 .lightbox-close {
   position: absolute;
   top: 18px;

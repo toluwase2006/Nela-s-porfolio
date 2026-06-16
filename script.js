@@ -54,19 +54,42 @@ filterButtons.forEach((button) => {
 });
 
 const lightbox = document.querySelector('#lightbox');
-const lightboxVideo = lightbox.querySelector('video');
+const instagramFrame = lightbox.querySelector('iframe');
+const body = document.body;
 const portfolioThumbnails = document.querySelectorAll('.portfolio-item');
 const lightboxClose = document.querySelector('.lightbox-close');
 
+function getInstagramEmbedUrl(url) {
+  if (!url) return '';
+  try {
+    const parsed = new URL(url, window.location.href);
+    const path = parsed.pathname.replace(/\/$/, '');
+    if (path.includes('/reel/')) {
+      return `https://www.instagram.com${path}/embed/`;
+    }
+    if (path.includes('/p/')) {
+      return `https://www.instagram.com${path}/embed/`;
+    }
+    return url;
+  } catch {
+    return url;
+  }
+}
+
+function openLightbox(src) {
+  instagramFrame.src = src;
+  lightbox.classList.add('show');
+  lightbox.setAttribute('aria-hidden', 'false');
+  body.classList.add('modal-open');
+}
+
 portfolioThumbnails.forEach((item) => {
   item.addEventListener('click', () => {
-    const videoUrl = item.dataset.video;
-    if (!videoUrl) return;
-    lightboxVideo.querySelector('source').src = videoUrl;
-    lightboxVideo.load();
-    lightbox.classList.add('show');
-    lightbox.setAttribute('aria-hidden', 'false');
-    lightboxVideo.play().catch(() => {});
+    const instagramUrl = item.dataset.video;
+    if (!instagramUrl) return;
+
+    const embedUrl = getInstagramEmbedUrl(instagramUrl);
+    openLightbox(embedUrl);
   });
 });
 
@@ -86,9 +109,8 @@ document.addEventListener('keydown', (event) => {
 function closeLightbox() {
   lightbox.classList.remove('show');
   lightbox.setAttribute('aria-hidden', 'true');
-  lightboxVideo.pause();
-  lightboxVideo.currentTime = 0;
-  lightboxVideo.querySelector('source').src = '';
+  body.classList.remove('modal-open');
+  instagramFrame.src = '';
 }
 
 const prevBtn = document.querySelector('.testimonial-prev');
