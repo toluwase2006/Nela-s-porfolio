@@ -91,37 +91,57 @@ function closeLightbox() {
   lightboxVideo.querySelector('source').src = '';
 }
 
-const testimonialTrack = document.querySelector('.testimonial-track');
-const testimonials = document.querySelectorAll('.testimonial-card');
 const prevBtn = document.querySelector('.testimonial-prev');
 const nextBtn = document.querySelector('.testimonial-next');
-let activeIndex = 0;
-const mediaTrack = document.querySelector('.testimonial-media-track');
-const mediaItems = mediaTrack.querySelectorAll('img');
 const testimonialText = document.querySelector('.testimonial-text');
 const testimonialName = document.querySelector('.testimonial-name');
 const testimonialRole = document.querySelector('.testimonial-role');
+let activeIndex = 0;
+
+const testimonialsData = [
+  {
+    text: 'Delivered exactly what we needed. The edits were clean, engaging, and always on time.',
+    name: 'Amelia Ruiz',
+    role: 'Creative Director, Studio Wave',
+    avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200&q=80',
+  },
+  {
+    text: 'The storytelling and rhythm were perfect. Our campaign performed stronger than expected across social.',
+    name: 'Jordan Wells',
+    role: 'Marketing Lead, Bright Media',
+    avatar: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=200&q=80',
+  },
+  {
+    text: 'Reliable, creative, and detail-focused. The final videos were polished and delivered exactly as promised.',
+    name: 'Sophia Patel',
+    role: 'Founder, Lumen Labs',
+    avatar: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=200&q=80',
+  },
+];
+
+const testimonialAvatar = document.querySelector('.testimonial-avatar');
 
 function updateTestimonials(index) {
-  mediaTrack.style.transform = `translateX(-${index * 220}px)`;
-  const activeImg = mediaItems[index];
-  testimonialText.textContent = activeImg.dataset.text;
-  testimonialName.textContent = activeImg.dataset.name;
-  testimonialRole.textContent = activeImg.dataset.role;
+  const active = testimonialsData[index];
+  testimonialText.textContent = active.text;
+  testimonialName.textContent = active.name;
+  testimonialRole.textContent = active.role;
+  testimonialAvatar.src = active.avatar;
+  testimonialAvatar.alt = active.name;
 }
 
 prevBtn.addEventListener('click', () => {
-  activeIndex = activeIndex > 0 ? activeIndex - 1 : mediaItems.length - 1;
+  activeIndex = activeIndex > 0 ? activeIndex - 1 : testimonialsData.length - 1;
   updateTestimonials(activeIndex);
 });
 
 nextBtn.addEventListener('click', () => {
-  activeIndex = activeIndex < mediaItems.length - 1 ? activeIndex + 1 : 0;
+  activeIndex = activeIndex < testimonialsData.length - 1 ? activeIndex + 1 : 0;
   updateTestimonials(activeIndex);
 });
 
 setInterval(() => {
-  activeIndex = activeIndex < mediaItems.length - 1 ? activeIndex + 1 : 0;
+  activeIndex = activeIndex < testimonialsData.length - 1 ? activeIndex + 1 : 0;
   updateTestimonials(activeIndex);
 }, 8000);
 
