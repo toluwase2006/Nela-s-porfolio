@@ -124,7 +124,7 @@ const testimonialsData = [
   {
     text: 'My best girl, this is super.',
     name: 'Ms Linda',
-    role: 'Creative Director, Studio Wave',
+    role: 'Realtor, luminous Hills',
     avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200&q=80',
   },
   {
