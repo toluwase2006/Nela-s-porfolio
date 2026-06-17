@@ -814,8 +814,8 @@ body.modal-open {
 
 .lightbox-close {
   position: absolute;
-  top: 18px;
-  right: 18px;
+  top: 5px;
+  right: 150px;
   width: 48px;
   height: 48px;
   border-radius: 50%;
