@@ -924,6 +924,11 @@ body.modal-open {
   .timeline {
     grid-template-columns: 1fr;
   }
+
+  .footer-links {
+    justify-content: center;
+    
+  }
 }
 
 @media (max-width: 640px) {
