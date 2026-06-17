@@ -122,23 +122,18 @@ let activeIndex = 0;
 
 const testimonialsData = [
   {
-    text: 'Delivered exactly what we needed. The edits were clean, engaging, and always on time.',
-    name: 'Amelia Ruiz',
+    text: 'My best girl, this is super.',
+    name: 'Ms Linda',
     role: 'Creative Director, Studio Wave',
     avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200&q=80',
   },
   {
-    text: 'The storytelling and rhythm were perfect. Our campaign performed stronger than expected across social.',
+    text: 'Aww this is clean',
     name: 'Jordan Wells',
     role: 'Marketing Lead, Bright Media',
     avatar: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=200&q=80',
   },
-  {
-    text: 'Reliable, creative, and detail-focused. The final videos were polished and delivered exactly as promised.',
-    name: 'Sophia Patel',
-    role: 'Founder, Lumen Labs',
-    avatar: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=200&q=80',
-  },
+
 ];
 
 const testimonialAvatar = document.querySelector('.testimonial-avatar');
