@@ -355,7 +355,7 @@ p {
 
 .about-grid {
   grid-template-columns: 360px 1fr;
-  align-items: start;
+  align-items: center;
 }
 
 .profile-card {
@@ -387,6 +387,40 @@ p {
 
 .about-copy p {
   margin-bottom: 20px;
+}
+
+.what-i-bring {
+  margin-top: 30px;
+}
+
+.what-i-bring h3 {
+  margin-bottom: 18px;
+}
+
+.value-list {
+  display: grid;
+  gap: 16px;
+}
+
+.value-list article {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.value-list article > span {
+  flex: 0 0 auto;
+  font-size: 1.35rem;
+  line-height: 1.4;
+}
+
+.value-list h4 {
+  margin-bottom: 4px;
+}
+
+.about-copy .value-list p {
+  margin-bottom: 0;
+  line-height: 1.6;
 }
 
 .stats-grid {

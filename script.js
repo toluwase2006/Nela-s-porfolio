@@ -177,6 +177,10 @@ contactForm.addEventListener('submit', (event) => {
     formFeedback.textContent = 'Please enter a valid email address.';
     return;
   }
+  const recipient = 'Victoryndikom697@gmail.com';
+  const subject = 'New project inquiry';
+  const body = `Email: ${email}\n\nProject Brief:\n${message}`;
+  window.location.href = `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   formFeedback.textContent = 'Thanks! Your message is ready to be sent.';
   contactForm.reset();
 });
